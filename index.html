@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -209,10 +208,52 @@
                 font-size: 1.1rem;
             }
         }
+
+        .add-to-cart-btn {
+            background: linear-gradient(45deg, var(--primary-yellow), #FFE55C);
+            color: var(--primary-black);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: linear-gradient(45deg, var(--primary-red), var(--light-red));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(220, 20, 60, 0.3);
+        }
+        
+        .cart-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary-red);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-notification.show {
+            transform: translateX(0);
+        }
     </style>
 </head>
 
 <body>
+    <!-- Notificação do Carrinho -->
+    <div id="cart-notification" class="cart-notification">
+        <i class="bi bi-check-circle"></i> Produto adicionado ao carrinho!
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -238,6 +279,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">
+                            <i class="bi bi-cart3"></i> Carrinho (<span id="cart-count">0</span>)
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -274,6 +320,9 @@
                         <i class="bi bi-egg-fried product-icon"></i>
                         <h3 class="product-name">Coxinha de Frango</h3>
                         <p class="product-price">R$ 4,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Coxinha de Frango', 4.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -281,6 +330,9 @@
                         <i class="bi bi-award product-icon"></i>
                         <h3 class="product-name">Cachorro Quente</h3>
                         <p class="product-price">R$ 6,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Cachorro Quente', 6.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -288,6 +340,9 @@
                         <i class="bi bi-bookmark product-icon"></i>
                         <h3 class="product-name">Pastel</h3>
                         <p class="product-price">R$ 5,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Pastel', 5.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -295,6 +350,9 @@
                         <i class="bi bi-circle product-icon"></i>
                         <h3 class="product-name">Quibe</h3>
                         <p class="product-price">R$ 4,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Quibe', 4.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -302,6 +360,9 @@
                         <i class="bi bi-box product-icon"></i>
                         <h3 class="product-name">Enrolado de Presunto e Queijo</h3>
                         <p class="product-price">R$ 5,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Enrolado de Presunto e Queijo', 5.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -309,6 +370,9 @@
                         <i class="bi bi-hamburger product-icon"></i>
                         <h3 class="product-name">Hambúrguer</h3>
                         <p class="product-price">R$ 8,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Hambúrguer', 8.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
             </div>
@@ -325,6 +389,9 @@
                         <i class="bi bi-circle product-icon"></i>
                         <h3 class="product-name">Brigadeiros</h3>
                         <p class="product-price">R$ 2,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Brigadeiros', 2.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -332,6 +399,9 @@
                         <i class="bi bi-cloud product-icon"></i>
                         <h3 class="product-name">Sonho</h3>
                         <p class="product-price">R$ 3,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Sonho', 3.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -339,6 +409,9 @@
                         <i class="bi bi-gem product-icon"></i>
                         <h3 class="product-name">Bala</h3>
                         <p class="product-price">R$ 0,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Bala', 0.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -346,6 +419,9 @@
                         <i class="bi bi-circle product-icon"></i>
                         <h3 class="product-name">Pirulito</h3>
                         <p class="product-price">R$ 1,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Pirulito', 1.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -353,6 +429,9 @@
                         <i class="bi bi-square product-icon"></i>
                         <h3 class="product-name">Chiclete</h3>
                         <p class="product-price">R$ 0,75</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Chiclete', 0.75)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
             </div>
@@ -369,6 +448,9 @@
                         <i class="bi bi-droplet product-icon"></i>
                         <h3 class="product-name">Água</h3>
                         <p class="product-price">R$ 2,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Água', 2.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -376,6 +458,9 @@
                         <i class="bi bi-cup-soda product-icon"></i>
                         <h3 class="product-name">Refrigerante Lata</h3>
                         <p class="product-price">R$ 4,00</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Refrigerante Lata', 4.00)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -383,6 +468,9 @@
                         <i class="bi bi-cup product-icon"></i>
                         <h3 class="product-name">Suco</h3>
                         <p class="product-price">R$ 3,50</p>
+                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Suco', 3.50)">
+                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
                 </div>
             </div>
@@ -446,5 +534,53 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Carrinho de compras
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Adicionar produto ao carrinho
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            saveCart();
+            updateCartCount();
+            showNotification();
+        }
+
+        // Salvar carrinho no localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        // Mostrar notificação
+        function showNotification() {
+            const notification = document.getElementById('cart-notification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Inicializar contador do carrinho ao carregar a página
+        updateCartCount();
+    </script>
 </body>
 </html>
