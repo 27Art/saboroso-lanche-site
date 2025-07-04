@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,252 +14,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --primary-red: #DC143C;
-            --primary-yellow: #FFD700;
-            --primary-black: #1a1a1a;
-            --light-red: #FF6B8A;
-            --light-yellow: #FFF8DC;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #fff;
-        }
-        
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-red), var(--light-red)) !important;
-            box-shadow: 0 2px 10px rgba(220, 20, 60, 0.3);
-        }
-        
-        .navbar-brand {
-            font-family: 'Fredoka', cursive;
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: white !important;
-        }
-        
-        .nav-link {
-            color: white !important;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary-yellow) !important;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-yellow), #FFE55C);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23DC143C" opacity="0.1"/></svg>') repeat;
-            animation: float 20s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateX(-50%) translateY(-50%); }
-            100% { transform: translateX(-50%) translateY(-60%); }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-family: 'Fredoka', cursive;
-            font-weight: 700;
-            font-size: 4rem;
-            color: var(--primary-red);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--primary-black);
-            margin-bottom: 2rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary-red), var(--light-red));
-            border: none;
-            padding: 12px 30px;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(220, 20, 60, 0.4);
-            background: linear-gradient(45deg, var(--light-red), var(--primary-red));
-        }
-        
-        .section-title {
-            font-family: 'Fredoka', cursive;
-            font-weight: 600;
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-yellow);
-            border-radius: 2px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid transparent;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: var(--primary-yellow);
-        }
-        
-        .product-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
-        }
-        
-        .salgados .product-icon { color: var(--primary-red); }
-        .doces .product-icon { color: var(--primary-yellow); }
-        .bebidas .product-icon { color: var(--primary-black); }
-        
-        .product-name {
-            font-family: 'Fredoka', cursive;
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--primary-black);
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .product-price {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary-red);
-            text-align: center;
-        }
-        
-        .section-bg {
-            background: linear-gradient(135deg, var(--light-yellow), #FFFACD);
-            padding: 5rem 0;
-        }
-        
-        .footer {
-            background: var(--primary-black);
-            color: white;
-            padding: 3rem 0 2rem;
-            margin-top: 5rem;
-        }
-        
-        .footer h5 {
-            color: var(--primary-yellow);
-            font-family: 'Fredoka', cursive;
-            font-weight: 600;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            color: var(--primary-yellow);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
-        .add-to-cart-btn {
-            background: linear-gradient(45deg, var(--primary-yellow), #FFE55C);
-            color: var(--primary-black);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-        
-        .add-to-cart-btn:hover {
-            background: linear-gradient(45deg, var(--primary-red), var(--light-red));
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(220, 20, 60, 0.3);
-        }
-        
-        .cart-notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--primary-red);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-        }
-        
-        .cart-notification.show {
-            transform: translateX(0);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-image:hover {
-            transform: scale(1.05);
-        }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
@@ -327,73 +84,8 @@
     <section id="salgados" class="py-5">
         <div class="container">
             <h2 class="section-title">🥟 Salgados Quentinhos</h2>
-            <div class="row salgados">
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center" alt="Coxinha de Frango" class="product-image">
-                        <i class="bi bi-egg-fried product-icon"></i>
-                        <h3 class="product-name">Coxinha de Frango</h3>
-                        <p class="product-price">R$ 4,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Coxinha de Frango', 4.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1551892374-ecf8985c84c7?w=400&h=300&fit=crop&crop=center" alt="Cachorro Quente" class="product-image">
-                        <i class="bi bi-award product-icon"></i>
-                        <h3 class="product-name">Cachorro Quente</h3>
-                        <p class="product-price">R$ 6,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Cachorro Quente', 6.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=300&fit=crop&crop=center" alt="Pastel" class="product-image">
-                        <i class="bi bi-bookmark product-icon"></i>
-                        <h3 class="product-name">Pastel</h3>
-                        <p class="product-price">R$ 5,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Pastel', 5.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&h=300&fit=crop&crop=center" alt="Quibe" class="product-image">
-                        <i class="bi bi-circle product-icon"></i>
-                        <h3 class="product-name">Quibe</h3>
-                        <p class="product-price">R$ 4,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Quibe', 4.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&crop=center" alt="Enrolado de Presunto e Queijo" class="product-image">
-                        <i class="bi bi-box product-icon"></i>
-                        <h3 class="product-name">Enrolado de Presunto e Queijo</h3>
-                        <p class="product-price">R$ 5,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Enrolado de Presunto e Queijo', 5.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop&crop=center" alt="Hambúrguer" class="product-image">
-                        <i class="bi bi-hamburger product-icon"></i>
-                        <h3 class="product-name">Hambúrguer</h3>
-                        <p class="product-price">R$ 8,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Hambúrguer', 8.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
+            <div class="row salgados" id="salgados-container">
+                <!-- Products will be loaded by JavaScript -->
             </div>
         </div>
     </section>
@@ -402,62 +94,8 @@
     <section id="doces" class="section-bg">
         <div class="container">
             <h2 class="section-title">🍭 Doces Irresistíveis</h2>
-            <div class="row doces">
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center" alt="Brigadeiros" class="product-image">
-                        <i class="bi bi-circle product-icon"></i>
-                        <h3 class="product-name">Brigadeiros</h3>
-                        <p class="product-price">R$ 2,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Brigadeiros', 2.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1549312185-6a24c2075d51?w=400&h=300&fit=crop&crop=center" alt="Sonho" class="product-image">
-                        <i class="bi bi-cloud product-icon"></i>
-                        <h3 class="product-name">Sonho</h3>
-                        <p class="product-price">R$ 3,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Sonho', 3.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7e?w=400&h=300&fit=crop&crop=center" alt="Bala" class="product-image">
-                        <i class="bi bi-gem product-icon"></i>
-                        <h3 class="product-name">Bala</h3>
-                        <p class="product-price">R$ 0,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Bala', 0.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7bfb?w=400&h=300&fit=crop&crop=center" alt="Pirulito" class="product-image">
-                        <i class="bi bi-circle product-icon"></i>
-                        <h3 class="product-name">Pirulito</h3>
-                        <p class="product-price">R$ 1,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Pirulito', 1.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=400&h=300&fit=crop&crop=center" alt="Chiclete" class="product-image">
-                        <i class="bi bi-square product-icon"></i>
-                        <h3 class="product-name">Chiclete</h3>
-                        <p class="product-price">R$ 0,75</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Chiclete', 0.75)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
+            <div class="row doces" id="doces-container">
+                <!-- Products will be loaded by JavaScript -->
             </div>
         </div>
     </section>
@@ -466,40 +104,8 @@
     <section id="bebidas" class="py-5">
         <div class="container">
             <h2 class="section-title">🥤 Bebidas Geladinhas</h2>
-            <div class="row bebidas">
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1550472301-3943d4bfc4c8?w=400&h=300&fit=crop&crop=center" alt="Água" class="product-image">
-                        <i class="bi bi-droplet product-icon"></i>
-                        <h3 class="product-name">Água</h3>
-                        <p class="product-price">R$ 2,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Água', 2.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&crop=center" alt="Refrigerante Lata" class="product-image">
-                        <i class="bi bi-cup-soda product-icon"></i>
-                        <h3 class="product-name">Refrigerante Lata</h3>
-                        <p class="product-price">R$ 4,00</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Refrigerante Lata', 4.00)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=300&fit=crop&crop=center" alt="Suco" class="product-image">
-                        <i class="bi bi-cup product-icon"></i>
-                        <h3 class="product-name">Suco</h3>
-                        <p class="product-price">R$ 3,50</p>
-                        <button class="btn add-to-cart-btn w-100" onclick="addToCart('Suco', 3.50)">
-                            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
+            <div class="row bebidas" id="bebidas-container">
+                <!-- Products will be loaded by JavaScript -->
             </div>
         </div>
     </section>
@@ -561,53 +167,10 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // Carrinho de compras
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        // Adicionar produto ao carrinho
-        function addToCart(name, price) {
-            const existingItem = cart.find(item => item.name === name);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: 1
-                });
-            }
-            
-            saveCart();
-            updateCartCount();
-            showNotification();
-        }
-
-        // Salvar carrinho no localStorage
-        function saveCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-        // Atualizar contador do carrinho
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = totalItems;
-        }
-
-        // Mostrar notificação
-        function showNotification() {
-            const notification = document.getElementById('cart-notification');
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-
-        // Inicializar contador do carrinho ao carregar a página
-        updateCartCount();
-    </script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
